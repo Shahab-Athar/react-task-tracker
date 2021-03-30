@@ -25,10 +25,14 @@ function App() {
         }
     ])
 
+    const deleteTask = (id) => {
+      setTasks(tasks.filter((task) => task.id !== id))
+    }
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      {DataTransferItemList.lenght > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} />) : ( "No Tasks To Show" )}
     </div>
   );
 }
